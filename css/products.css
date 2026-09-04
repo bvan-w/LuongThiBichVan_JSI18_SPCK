@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Quicksand:wght@300..700&family=Unbounded:wght@200..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Comfortaa", sans-serif;
+}
+body{
+    background: #fae6f0;
+    background: radial-gradient(circle, rgba(250, 230, 240, 1) 0%, rgba(252, 252, 252, 0.59) 91%);
+    min-height: 100vh;
+}
+.logonav{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #Eba3bd;
+    text-decoration: none;
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    font-weight: 800;
+}
+.name{
+    font-family: "Unbounded", sans-serif;
+}
+.logoimg{
+    width: clamp(70px, 4vw, 70px);
+    height: clamp(70px, 4vw, 70px);
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: #fceaf1;
+    z-index: 999;
+}
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 2rem;
+    max-width: 1600px;
+}
+.navbar .navmenu{
+    display: flex;
+    text-align: center;
+    gap: 1.5rem;
+    list-style: none;
+}
+.navbar .navmenu li a{
+    text-decoration: none;
+    color: #Eba3bd;
+    font-size: 1.3rem;
+    font-weight: 500;
+    padding: 3px 20px;
+    border-radius: 20px;
+    border: 2px solid transparent;
+    transition: all 0.7s ease;
+    white-space: nowrap;
+    font-family: "Unbounded", sans-serif;
+}
+.navbar .navmenu li a:hover{
+    color: #FECFE3;
+    background-color: #Fff0f5;
+    border: 2px solid #f5bed2;
+}
+
+/* reponsive */
+
+@media (max-width: 768px) {
+    nav {
+        height: 70px;
+    }
+    .navbar {
+        padding: 0 1rem;
+    }
+    .logoimg {
+        width: 55px;
+        height: 55px;
+    }
+    .name {
+        font-size: 0.9rem;
+    }
+    .navbar .navmenu {
+        position: fixed;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        width: 58px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 7px;
+        list-style: none;
+        background: rgba(252, 234, 241, 0.9);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        border-radius: 30px;
+        box-shadow: 0 8px 25px rgba(218, 137, 170, 0.2);
+        z-index: 1000;
+    }
+    .navbar .navmenu li {
+        width: 100%;
+    }
+    .navbar .navmenu li a {
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        border-radius: 50%;
+        font-size: 0;
+        color: #Eba3bd;
+        border: 2px solid transparent;
+        transition: all 0.3s ease;
+    }
+    .navbar .navmenu li a i {
+        font-size: 22px;
+    }
+    .navbar .navmenu li:nth-child(1) a::before {
+        content: "⌂";
+        font-size: 21px;
+    }
+    .navbar .navmenu li:nth-child(1) a i {
+        display: none;
+    }
+    .navbar .navmenu li:nth-child(2) a::before {
+        content: "✿";
+        font-size: 19px;
+    }
+    .navbar .navmenu li:nth-child(3) a::before {
+        content: "♡";
+        font-size: 22px;
+    }
+    .navbar .navmenu li a:hover {
+        background: #fff0f5;
+        border-color: #f5bed2;
+        color: #d985aa;
+        transform: scale(1.1);
+    }
+    .navbar .navmenu li:nth-child(4) a {
+        background: #e4f7f3;
+        color: #79b8ad;
+    }
+    .navbar .navmenu li:nth-child(5) a {
+        background: #ffe3ed;
+        color: #db87a8;
+    }
+}
+@media (max-width: 480px) {
+    .navbar .navmenu {
+        right: 7px;
+        width: 52px;
+        padding: 9px 5px;
+        gap: 7px;
+    }
+    .navbar .navmenu li a {
+        width: 40px;
+        height: 40px;
+    }
+    .navbar .navmenu li a i {
+        font-size: 20px;
+    }
+    .navbar .navmenu li:nth-child(1) a::before {
+        font-size: 19px;
+    }
+    .navbar .navmenu li:nth-child(2) a::before {
+        font-size: 17px;
+    }
+    .navbar .navmenu li:nth-child(3) a::before {
+        font-size: 20px;
+    }
+}

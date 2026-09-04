@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/feedback.css">
+</head>
+<body>
+
+<!-- navbar -->
+
+    <header>
+        <nav>
+            <div class="navbar">
+                <a href="gthieu.html" class="logonav">
+                    <img src="/img/logo3-removebg-preview.png" class="logoimg">
+                    <span class="name">Hyacine</span>
+                </a>
+                <ul class="navmenu" id="navmenu">
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/html/products.html">Product</a></li>
+                    <li><a href="/html/feedback.html">Feedback</a></li>
+                    <li>
+                        <a href="./cart.html" >
+                            <i class="bx bx-shopping-bag"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" id="logout-btn">
+                            <i class='bx bx-log-out' ></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+<!-- main -->
+
+    <main class="feedback-page">
+        <section class="feedback-heading">
+            <p class="heading-small">YOUR BEAUTY JOURNEY ♡</p>
+            <h1>Share Your Experience</h1>
+            <p class="heading-description">Tell us what you think about Hyacine products. Your feedback helps us become better every day ♡</p>
+        </section>
+
+<!-- feedback form -->
+
+        <section class="feedback-container">
+
+            <div class="feedback-form-card">
+                <div class="form-title">
+                    <span>♡</span>
+                    <h2>Leave a Review</h2>
+                    <span>♡</span>
+                </div>
+
+                <form id="feedback-form">
+
+                    <div class="input-group">
+                        <label for="feedback-name">Your name</label>
+                        <input type="text" id="feedback-name" placeholder="Enter your name..." required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Your rating</label>
+                        <div class="rating-input">
+
+                            <input type="radio" id="star5" name="rating" value="5">
+                            <label for="star5">★</label>
+
+                            <input type="radio" id="star4" name="rating" value="4">
+                            <label for="star4">★</label>
+
+                            <input type="radio" id="star3" name="rating" value="3">
+                            <label for="star3">★</label>
+
+                            <input type="radio" id="star2" name="rating" value="2">
+                            <label for="star2">★</label>
+
+                            <input type="radio" id="star1" name="rating" value="1">
+                            <label for="star1">★</label>
+
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="feedback-message">Your feedback</label>
+                        <textarea id="feedback-message" rows="6" placeholder="Tell us about your experience..." required></textarea>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="feedback-image">Add an image ♡</label>
+
+                        <div class="image-upload-box">
+                            <input type="file" id="feedback-image" accept="image/*">
+                            <label for="feedback-image" class="image-upload-label">
+                                <i class='bx bx-image-add'></i>
+                                <span>Choose an image</span>
+                                <small>PNG, JPG, WEBP</small>
+                            </label>
+                            <div id="image-preview" class="image-preview"></div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="feedback-submit">
+                        SEND FEEDBACK
+                        <i class='bx bx-send'></i>
+                    </button>
+
+                </form>
+            </div>
+
+<!-- decor -->
+
+            <div class="feedback-decoration">
+                <div class="deco-circle"></div>
+                <div class="deco-heart heart-1">♡</div>
+                <div class="deco-heart heart-2">♡</div>
+                <div class="deco-star star-1">✦</div>
+                <div class="deco-star star-2">✧</div>
+                <div class="feedback-message">
+                    <span>
+                        <img src="/img/tải xuống.gif" alt="">
+                    </span>
+                    <h3>Your opinion<br>matters to us</h3>
+                </div>
+            </div>
+        </section>
+
+<!-- rv -->
+
+        <section class="reviews-section">
+            <div class="reviews-title">
+                <p>WHAT OUR CUSTOMERS SAY</p>
+                <h2>Lovely Feedback ♡</h2>
+            </div>
+
+            <div class="reviews-list" id="feedback-list">
+
+            </div>
+        </section>
+    </main>
+
+
+
+    <script>
+        (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arg)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="z7tnjgvAuFOWVlYVJ5D2Z";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+    </script>
+    <script type="module" src="/js/feedback.js"></script>
+</body>
+</html>

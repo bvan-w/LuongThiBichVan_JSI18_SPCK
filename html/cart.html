@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/all.css">
+</head>
+<body>
+
+<!-- navbar -->
+
+    <header>
+        <nav>
+            <div class="navbar">
+                <a href="gthieu.html" class="logonav">
+                    <img src="./img/logo3-removebg-preview.png" class="logoimg">
+                    <span class="name">Hyacine</span>
+                </a>
+                <ul class="navmenu" id="navmenu">
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/html/products.html">Product</a></li>
+                    <li><a href="/html/feedback.html">Feedback</a></li>
+                    <li>
+                        <a href="/html/cart.html" >
+                            <i class="bx bx-shopping-bag"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" id="logout-btn">
+                            <i class='bx bx-log-out' ></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>   
+
+<!-- main -->
+
+    <main class="cart-page">
+        <section class="cart-heading">
+            <p class="heading-small">YOUR BEAUTY COLLECTION ♡</p>
+            <h1>Your Shopping Bag</h1>
+            <p>Review your favorite beauty products before checking out ♡</p>
+        </section>
+
+<!-- content -->
+
+        <section class="cart-container">
+<!-- left -->
+            <div class="cart-items-section">
+                <div class="cart-items-header">
+                    <h2><i class='bx bx-shopping-bag'></i>Your Items</h2>
+                    <span id="cart-count">0 items</span>
+                </div>
+
+                <div class="cart-list" id="cart-list">
+                
+                </div>
+
+                <div class="empty-cart" id="empty-cart" style="display: none;">
+                    <div class="empty-cart-icon">♡</div>
+                    <h2>Your bag is empty</h2>
+                    <p>Looks like you haven't added anything yet.</p>
+                    <a href="products.html" class="continue-shopping">DISCOVER PRODUCTS
+                        <i class='bx bx-right-arrow-alt'></i>
+                    </a>
+                </div>
+            </div>
+<!-- right -->
+            <aside class="cart-summary">
+                <div class="summary-title">
+                    <span>♡</span>
+                    <h2>Order Summary</h2>
+                    <span>♡</span>
+                </div>
+
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <strong id="cart-subtotal">0₫</strong>
+                </div>
+
+                <div class="summary-row">
+                    <span>Shipping</span>
+                    <strong id="cart-shipping">0đ</strong>
+                </div>
+            
+                <div class="summary-total">
+                    <span>Total</span>
+                    <strong id="cart-total">0₫</strong>
+                </div>
+
+                <button type="button" class="checkout-btn" id="checkout-btn">
+                    CHECKOUT
+                    <i class='bx bx-right-arrow-alt'></i>
+                </button>
+
+                <a href="products.html" class="back-shopping">
+                    <i class='bx bx-left-arrow-alt'></i> Continue Shopping
+                </a>
+<!-- decor -->
+                <div class="summary-decoration">
+                    <span>✦</span>
+                    <span>♡</span>
+                    <span>✧</span>
+                </div>
+
+            </aside>
+        </section>
+
+<!-- bne -->
+
+        <section class="cart-benefits">
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class='bx bx-package'></i>
+                </div>
+                <div>
+                    <h3>Lovely Packaging</h3>
+                    <p>Carefully packed with love ♡</p>
+                </div>
+            </div>
+
+
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class='bx bx-shield-check'></i>
+                </div>
+                <div>
+                    <h3>Safe Shopping</h3>
+                    <p>Your order is protected</p>
+                </div>
+            </div>
+
+
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class='bx bx-heart'></i>
+                </div>
+                <div>
+                    <h3>Made With Love</h3>
+                    <p>Korean beauty for you ♡</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+<!-- footer -->
+
+
+
+
+
+
+
+
+
+
+    <script>
+        (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arg)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="z7tnjgvAuFOWVlYVJ5D2Z";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+    </script>
+    <script type="module" src="/js/cart.js"></script>
+</body>
+</html>
