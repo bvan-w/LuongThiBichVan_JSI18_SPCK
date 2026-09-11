@@ -31,153 +31,77 @@ registerForm.addEventListener("submit", async (e) => {
         alert("Tài khoản phải ít nhất 6 ký tự.");
         return;
     }
-
     if (password.length < 8) {
         alert("Mật khẩu phải ít nhất 8 ký tự.");
         return;
     }
-
     if (!/[a-z]/.test(password)) {
         alert("Mật khẩu phải có kí tự viết thường.");
         return;
     }
-
     if (!/[A-Z]/.test(password)) {
         alert("Mật khẩu phải có kí tự viết hoa.");
         return;
     }
-
     if (!/[0-9]/.test(password)) {
         alert("Mật khẩu phải có kí tự số.");
         return;
     }
-
     try {
-        const userCredential = await createUserWithEmailAndPassword(
-                auth,
-                email,
-                password
-            );
+        const userCredential = await createUserWithEmailAndPassword(auth,email,password);
         const user = userCredential.user;
         await updateProfile(user, {
             displayName: username
         });
-
-
         alert("Đăng ký thành công!");
-
-        // Reset form
-
         registerForm.reset();
-
-
-        // Chuyển sang form đăng nhập
-
+//quaylaidangnhap
         document
             .querySelector(".container")
             .classList.remove("active");
-
-
     } catch (error) {
-
         console.error(error);
-
-
         switch (error.code) {
-
             case "auth/email-already-in-use":
-
                 alert("Email này đã được đăng ký.");
-
                 break;
-
-
             case "auth/invalid-email":
-
                 alert("Email không hợp lệ.");
-
                 break;
-
-
             case "auth/weak-password":
-
                 alert("Mật khẩu quá yếu.");
-
                 break;
-
-
             default:
-
                 alert(
                     "Đăng ký thất bại: " +
                     error.message
                 );
-
         }
-
     }
-
 });
 
-
-// ==========================================
-// ĐĂNG NHẬP
-// ==========================================
+//dangnhap
 
 loginForm.addEventListener("submit", async (e) => {
-
     e.preventDefault();
-
-
     const email =
         loginForm
             .querySelector('input[type="email"]')
             .value
             .trim();
-
-
     const password =
         loginForm
             .querySelector('input[type="password"]')
             .value;
-
-
     if (!email || !password) {
-
-        alert(
-            "Vui lòng nhập email và mật khẩu."
-        );
-
+        alert("Vui lòng nhập email và mật khẩu.");
         return;
     }
 
-
     try {
-
-        // ==================================
-        // FIREBASE LOGIN
-        // ==================================
-
-        const userCredential =
-            await signInWithEmailAndPassword(
-                auth,
-                email,
-                password
-            );
-
-
-        const user =
-            userCredential.user;
-
-
-       
-
-        const username =
-            user.displayName || "User";
-
-
-       
-
+        const userCredential = await signInWithEmailAndPassword(auth,email,password);
+        const user = userCredential.user;
+        const username = user.displayName || "User";
         localStorage.setItem(
             "currentUser",
             JSON.stringify({
@@ -186,72 +110,25 @@ loginForm.addEventListener("submit", async (e) => {
                 username: username
             })
         );
-
-
-        
-
-        alert(
-            `Xin chào ${username}!`
-        );
-
-
-        // Reset form
-
+        alert(`Xin chào ${username}!`);
         loginForm.reset();
-
-
-        
-
         window.location.href ="../index.html"
-
-
     } catch (error) {
-
         console.error(error);
-
-
         switch (error.code) {
-
             case "auth/invalid-credential":
-
             case "auth/wrong-password":
-
             case "auth/user-not-found":
-
-                alert(
-                    "Email hoặc mật khẩu không chính xác."
-                );
-
+                alert("Email hoặc mật khẩu không chính xác.");
                 break;
-
-
             case "auth/invalid-email":
-
-                alert(
-                    "Email không hợp lệ."
-                );
-
+                alert("Email không hợp lệ.");
                 break;
-
-
             case "auth/too-many-requests":
-
-                alert(
-                    "Bạn thử đăng nhập quá nhiều lần. Vui lòng thử lại sau."
-                );
-
+                alert("Bạn thử đăng nhập quá nhiều lần. Vui lòng thử lại sau.");
                 break;
-
-
             default:
-
-                alert(
-                    "Đăng nhập thất bại: " +
-                    error.message
-                );
-
+                alert("Đăng nhập thất bại: " + error.message);
         }
-
     }
-
 });
