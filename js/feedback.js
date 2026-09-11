@@ -12,6 +12,41 @@ onAuthStateChanged(auth, (user) => {
 
 //nút logout
 
+import {onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+import { auth } from "./firebase-config.js";
+
+onAuthStateChanged(auth, (user) => {
+
+    if (!user) {
+
+        // Chưa đăng nhập
+        window.location.href = "./login.html";
+        return;
+    }
+    console.log("Đã đăng nhập:", user.email);
+});
+
+//logout
+const logoutBtn = document.getElementById("logout-btn");
+
+    //kiemtradangnhap
+
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        console.log("User:", user.email);
+        console.log("UID:", user.uid);
+        if (logoutBtn) {
+            logoutBtn.style.display = "flex";
+        }
+    } else {
+        console.log("Chưa đăng nhập");
+        if (logoutBtn) {
+            logoutBtn.style.display = "none";
+        }
+    }
+});
+
+
 if (logoutBtn) {
     logoutBtn.addEventListener("click", async (e) => {
         e.preventDefault();
