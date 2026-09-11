@@ -11,123 +11,60 @@ loginBtn.addEventListener('click', () => {
 });
 
 
-import {
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-    updateProfile
-} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
-
-
-
-
+import {createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 import { auth } from "./firebase-config.js";
 
 
 
-const loginForm =
-    document.querySelector(".form-box.login form");
+const loginForm = document.querySelector(".form-box.login form");
+const registerForm = document.querySelector(".form-box.register form");
 
-
-
-
-const registerForm =
-    document.querySelector(".form-box.register form");
-
-
-// ==========================================
-// ĐĂNG KÝ
-// ==========================================
+// dangky
 
 registerForm.addEventListener("submit", async (e) => {
-
     e.preventDefault();
-
-
-    
-
-    const inputs =
-        registerForm.querySelectorAll("input");
-
-
-    const username =
-        inputs[0].value.trim();
-
-    const email =
-        inputs[1].value.trim();
-
-    const password =
-        inputs[2].value;
-
-
-    
-
+    const inputs = registerForm.querySelectorAll("input");
+    const username = inputs[0].value.trim();
+    const email = inputs[1].value.trim();
+    const password = inputs[2].value;
     if (username.length < 6) {
-
         alert("Tài khoản phải ít nhất 6 ký tự.");
-
         return;
     }
-
-
-    
 
     if (password.length < 8) {
-
         alert("Mật khẩu phải ít nhất 8 ký tự.");
-
         return;
     }
-
 
     if (!/[a-z]/.test(password)) {
-
         alert("Mật khẩu phải có kí tự viết thường.");
-
         return;
     }
-
 
     if (!/[A-Z]/.test(password)) {
-
         alert("Mật khẩu phải có kí tự viết hoa.");
-
         return;
     }
-
 
     if (!/[0-9]/.test(password)) {
-
         alert("Mật khẩu phải có kí tự số.");
-
         return;
     }
 
-
-    
-
     try {
-
-        const userCredential =
-            await createUserWithEmailAndPassword(
+        const userCredential = await createUserWithEmailAndPassword(
                 auth,
                 email,
                 password
             );
-
-
-        const user =
-            userCredential.user;
-
-
-        
-
+        const user = userCredential.user;
         await updateProfile(user, {
             displayName: username
         });
 
 
         alert("Đăng ký thành công!");
-
 
         // Reset form
 
