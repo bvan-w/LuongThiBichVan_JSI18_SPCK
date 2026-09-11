@@ -30,7 +30,7 @@ if (logoutBtn) {
             await signOut(auth);
             localStorage.removeItem("currentUser");
             alert("Đăng xuất thành công!");
-            window.location.href = "./index.html";
+            window.location.href = "../index.html";
         } catch (error) {
             console.error("Logout error:", error);
             alert("Đăng xuất thất bại!");
