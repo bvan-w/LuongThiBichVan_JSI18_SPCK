@@ -53,3 +53,68 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+//muitenbanner
+document.addEventListener("DOMContentLoaded", () => {
+    const wrapper = document.getElementById("adBannerWrapper");
+    const prevBtn = document.getElementById("adPrevBtn");
+    const nextBtn = document.getElementById("adNextBtn");
+    const dotsContainer = document.getElementById("adDots");
+
+    if (!wrapper) return;
+
+    const slides = wrapper.children;
+    const totalSlides = slides.length;
+    let currentIndex = 0;
+    let autoSlideInterval;
+
+    // Tạo chấm tròn
+    for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement("div");
+        dot.classList.add("ad-dot");
+        if (i === 0) dot.classList.add("active");
+        dot.addEventListener("click", () => goToSlide(i));
+        dotsContainer.appendChild(dot);
+    }
+
+    const dots = dotsContainer.children;
+
+    function goToSlide(index) {
+        currentIndex = index;
+        wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+        Array.from(dots).forEach((dot, i) => {
+            dot.classList.toggle("active", i === currentIndex);
+        });
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        goToSlide(currentIndex);
+    }
+
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        goToSlide(currentIndex);
+    }
+
+    nextBtn.addEventListener("click", () => {
+        nextSlide();
+        resetAutoSlide();
+    });
+
+    prevBtn.addEventListener("click", () => {
+        prevSlide();
+        resetAutoSlide();
+    });
+
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(nextSlide, 3500);
+    }
+
+    function resetAutoSlide() {
+        clearInterval(autoSlideInterval);
+        startAutoSlide();
+    }
+
+    startAutoSlide();
+});
