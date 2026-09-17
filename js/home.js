@@ -37,3 +37,19 @@ if (logoutBtn) {
         }
     });
 }
+
+//category
+document.addEventListener("DOMContentLoaded", () => {
+    const categoryCards = document.querySelectorAll(".category-card");
+
+    categoryCards.forEach(card => {
+        card.addEventListener("click", (e) => {
+            e.preventDefault();
+            // Lấy URL dạng /html/products.html?category=skincare
+            const targetUrl = card.getAttribute("href");
+            if (targetUrl) {
+                window.location.href = targetUrl;
+            }
+        });
+    });
+});

@@ -29,8 +29,8 @@
 
 .avatar-wrapper {
     position: relative;
-    width: 130px;
-    height: 130px;
+    width: 150px;
+    height: 150px;
     margin: 0 auto 20px;
     background: #fde8f0;
     border-radius: 50%;
@@ -39,10 +39,12 @@
 }
 
 .profile-avatar {
-    width: 100%;
+  width: 100%;
     height: 100%;
-    object-fit: contain;
-    border-radius: 50%;
+    border-radius: 50%;      /* Làm tròn ảnh bên trong */
+    object-fit: cover;       /* TỰ ĐỘNG CẮT VÀ GIỮ TỈ LỆ ẢNH CHUẨN (Không bị méo) */
+    object-position: center; /* Căn giữa khuôn mặt */
+    display: block;
 }
 
 .status-badge {

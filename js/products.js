@@ -143,3 +143,46 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+//lọc url home
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. Đọc tham số category từ URL (mặc định là "all" nếu không có)
+    const urlParams = new URLSearchParams(window.location.search);
+    const categoryParam = urlParams.get("category") || "all";
+
+    const filterBtns = document.querySelectorAll(".filter-btn");
+
+    filterBtns.forEach(btn => {
+        const btnCategory = (btn.dataset.category || "").toLowerCase();
+        
+        if (btnCategory === categoryParam.toLowerCase()) {
+            btn.classList.add("active");
+        } else {
+            btn.classList.remove("active");
+        }
+
+        btn.addEventListener("click", (e) => {
+            filterBtns.forEach(b => b.classList.remove("active"));
+            e.currentTarget.classList.add("active");
+            renderProducts(e.currentTarget.dataset.category);
+        });
+    });
+
+    renderProducts(categoryParam);
+});
+
+// Thêm data-category="${product.category}" vào thẻ product-card
+grid.innerHTML = filtered.map(product => `
+    <div class="product-card" data-category="${product.category}">
+        <img src="${product.img}" alt="${product.name}" class="product-img">
+        <div>
+            <span class="product-brand">${product.brand}</span>
+            <h4 class="product-title">${product.name}</h4>
+        </div>
+        <div class="product-bottom">
+            <span class="product-price">${product.price.toLocaleString('vi-VN')}₫</span>
+            <button class="add-cart-btn" data-id="${product.id}">
+                <i class='bx bx-cart-add'></i>
+            </button>
+        </div>
+    </div>
+`).join('');
