@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Quicksand:wght@300..700&family=Unbounded:wght@200..900&display=swap');
 
 .profile-page {
     width: 100%;
@@ -165,16 +165,15 @@
         padding: 8px 14px;
     }
 }
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Quicksand:wght@300..700&family=Unbounded:wght@200..900&display=swap');
+
 *{
     margin: 0;
     padding: 0;
     font-family: "Comfortaa", sans-serif;
 }
 body{
-    background: #fae6f0;
-    background: radial-gradient(circle, rgba(250, 230, 240, 1) 0%, rgba(252, 252, 252, 0.59) 91%);
     min-height: 100vh;
+    background-image: url(/img/bg.jpg);
 }
 .logonav{
     display: flex;
