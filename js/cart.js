@@ -28,23 +28,7 @@ onAuthStateChanged(auth, (user) => {
 //logout
 const logoutBtn = document.getElementById("logout-btn");
 
-    //kiemtradangnhap
-
-onAuthStateChanged(auth, (user) => {
-    if (user) {
-        console.log("User:", user.email);
-        console.log("UID:", user.uid);
-        if (logoutBtn) {
-            logoutBtn.style.display = "flex";
-        }
-    } else {
-        console.log("Chưa đăng nhập");
-        if (logoutBtn) {
-            logoutBtn.style.display = "none";
-        }
-    }
-});
-
+    
 
 if (logoutBtn) {
     logoutBtn.addEventListener("click", async (e) => {
